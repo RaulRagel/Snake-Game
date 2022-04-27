@@ -16,12 +16,12 @@ class Snake {
         this.y = y;
 
         this.direction = "right";
-        // this.body = 0;
 
         this.isDead = false;
 
         this.initHead();
-        this.initBody();
+        this.grow();
+        this.grow();
     }
 
 
@@ -42,11 +42,6 @@ class Snake {
         this.boardElement.appendChild(this.snakeHead);
     }
 
-    initBody(){
-
-        this.grow();
-    }
-
     grow(){
 
         //class
@@ -64,29 +59,6 @@ class Snake {
         this.boardElement.appendChild(elem);
         
         this.snakeBody.push(elem);
-    }
-
-
-    move(){
-
-        //antes de movernos, comprobamos que la cabeza no ha chocado
-        //y que no estás fuera de los límites
-
-        this.checkDangerZone();
-        this.checkOfflimits();
-
-        //-- snakeBody actua como una lista, donde el primer elemento del array se mueve a la
-        //--  cabeza de la serpiente, y cuando lo hace, se pone el úlimo en la lista y así sucesivamente
-
-        var first = this.snakeBody[0]; //guardamos el primer elemento del array
-
-        //si todo sale bien nos movemos
-        first.style.top = this.y*this.board.cellTam+'px';
-        first.style.left = this.x*this.board.cellTam+'px';
-        
-        this.snakeBody.shift(); //borramos el primer elemento
-        this.snakeBody.push(first); //y lo añadimos al final
-
     }
 
     up(){
@@ -133,13 +105,35 @@ class Snake {
         this.move();
     }
 
+    move(){
+
+        //antes de movernos, comprobamos que la cabeza no ha chocado
+        //y que no estás fuera de los límites
+
+        this.checkDangerZone();
+        this.checkOfflimits();
+
+        //-- snakeBody actua como una lista, donde el primer elemento del array se mueve a la
+        //--  cabeza de la serpiente, y cuando lo hace, se pone el úlimo en la lista y así sucesivamente
+
+        var first = this.snakeBody[0]; //guardamos el primer elemento del array
+
+        //movemos el primer elemento del array al inicio de la serpiente
+        first.style.top = this.snakeHead.style.top;
+        first.style.left = this.snakeHead.style.left;
+        
+        this.snakeBody.shift(); //borramos el primer elemento
+        this.snakeBody.push(first); //y lo añadimos al final
+
+    }
+
 
     checkOfflimits(){
 
         if(this.x >= this.board.cells || this.x < 0 ||
             this.y >= this.board.cells || this.y < 0)
 
-            this.isDead = true;
+            this.kill();
         
         // return false;
     }
@@ -153,29 +147,29 @@ class Snake {
 
                 if(this.snakeHead.style.top == body.style.top && this.snakeHead.style.top != this.apple.appleElement.style.top){
 
-                    this.isDead = true;
+                    this.kill();
                 }
             }
             
         })
 
-        // return false;
     }
 
 
-    //esta función devuelve true si hay duplicados; los comprobamos comparando
-    //el tamaño del array original con el tamaño del Set(), que nos
-    //elimina los elementos duplicados
-    duplicates(arr){
+    kill(){
 
-        var uniques = new Set(arr);
-
-        if(uniques.size != arr.length) return true;
-
-        return false
+        this.isDead = true;
     }
 
 
+    superGrow(num){
+
+        for(var i = 0; i < num; i++){
+            this.grow()
+        }
+
+        return "Snake body: "+this.snakeBody.length;
+    }
 
 }
 

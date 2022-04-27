@@ -100,4 +100,6 @@ body{
 
     position: absolute;
     background-color: var(--apple);
+
+    z-index: 3;
 }

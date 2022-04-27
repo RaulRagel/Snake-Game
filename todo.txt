@@ -6,3 +6,7 @@ como haces que crezca (esto va a ser movie)
 manzana en pos aleatoria
 
 ponerle ojitos con el after y el before y con la dirección va rotando
+
+
+la mamzana puede aparecer en la serpiente o no
+elegir config (tablero, celdas, velocidad de juego, tamaño del snake)
