@@ -2,7 +2,7 @@
 
 class Apple {
 
-    apple;
+    appleElement;
 
     constructor(board, x, y) {
 
@@ -27,18 +27,18 @@ class Apple {
         var elem = document.createElement("div");
         elem.id = "apple";
 
-        this.apple = elem;
+        this.appleElement = elem;
     }
     
     init(){
         
-        this.apple.style.left = this.x*this.board.cellTam+'px';
-        this.apple.style.top = this.y*this.board.cellTam+'px';
+        this.appleElement.style.left = this.x*this.board.cellTam+'px';
+        this.appleElement.style.top = this.y*this.board.cellTam+'px';
 
-        this.apple.style.width = this.tam+'px';
-        this.apple.style.height = this.tam+'px';
+        this.appleElement.style.width = this.tam+'px';
+        this.appleElement.style.height = this.tam+'px';
 
-        this.boardElement.appendChild(this.apple)
+        this.boardElement.appendChild(this.appleElement)
     }
 
 
@@ -47,8 +47,8 @@ class Apple {
         this.x = Math.floor(Math.random()*this.board.cells);
         this.y = Math.floor(Math.random()*this.board.cells);
 
-        this.apple.style.left = this.x*this.board.cellTam+'px';
-        this.apple.style.top = this.y*this.board.cellTam+'px';
+        this.appleElement.style.left = this.x*this.board.cellTam+'px';
+        this.appleElement.style.top = this.y*this.board.cellTam+'px';
     }
 
 

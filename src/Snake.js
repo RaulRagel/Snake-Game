@@ -18,6 +18,8 @@ class Snake {
         this.direction = "right";
         // this.body = 0;
 
+        this.isDead = false;
+
         this.initHead();
         this.initBody();
     }
@@ -67,16 +69,24 @@ class Snake {
 
     move(){
 
+        //antes de movernos, comprobamos que la cabeza no ha chocado
+        //y que no estás fuera de los límites
+
+        this.checkDangerZone();
+        this.checkOfflimits();
+
         //-- snakeBody actua como una lista, donde el primer elemento del array se mueve a la
         //--  cabeza de la serpiente, y cuando lo hace, se pone el úlimo en la lista y así sucesivamente
 
         var first = this.snakeBody[0]; //guardamos el primer elemento del array
 
+        //si todo sale bien nos movemos
         first.style.top = this.y*this.board.cellTam+'px';
         first.style.left = this.x*this.board.cellTam+'px';
-
+        
         this.snakeBody.shift(); //borramos el primer elemento
         this.snakeBody.push(first); //y lo añadimos al final
+
     }
 
     up(){
@@ -124,50 +134,32 @@ class Snake {
     }
 
 
-    //devolvemos true si estamos off limits o hemos comido nuestra cola
-    isDead(){
-
-        if(this.isOfflimits() || this.isSuicide())
-
-            return true;
-
-        return false;
-    }
-
-    isOfflimits(){
+    checkOfflimits(){
 
         if(this.x >= this.board.cells || this.x < 0 ||
             this.y >= this.board.cells || this.y < 0)
 
-            return true;
+            this.isDead = true;
         
-        return false;
+        // return false;
     }
 
-    isSuicide(){
 
-        var dangerZone = [];
+    checkDangerZone(){
 
         document.querySelectorAll(".snake-body").forEach((body)=>{
 
-            var pixels_x = body.style.left;
-            var pixels_y = body.style.top;
+            if(this.snakeHead.style.left == body.style.left && this.snakeHead.style.left != this.apple.appleElement.style.left){
 
-            // if(this.apple.x != this.x && this.apple.y != this.y){
-                
-                // console.log("ee");
-                if(this.apple.x == this.x && this.apple.y == this.y) console.log("is apple");
-                else dangerZone.push(`${pixels_x},${pixels_y}`);
-                // console.log(`Apple: [${this.apple.x},${this.apple.y}] Snake: [${this.x},${this.y}]`);
-            // }
+                if(this.snakeHead.style.top == body.style.top && this.snakeHead.style.top != this.apple.appleElement.style.top){
+
+                    this.isDead = true;
+                }
+            }
+            
         })
 
-        //comprobamos si dos bodys coinciden
-
-        if(this.duplicates(dangerZone)) return true;
-        // console.log(dangerZone);
-
-        return false;
+        // return false;
     }
 
 

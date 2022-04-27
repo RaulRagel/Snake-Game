@@ -54,7 +54,7 @@ class SnakeGame{
         interval = setInterval(()=>{ 
             
             this.snakeMovement(); //primero nos movemos
-            if(this.snake.isDead()) this.stop(); //luego comprobamos si hemso muerto
+            if(this.snake.isDead) this.stop(); //luego comprobamos si hemos muerto
             this.snakeEat(); //si no hemos muerto, comemos si podemos
 
         }, this.gameSpeed);
