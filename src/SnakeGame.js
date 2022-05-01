@@ -23,21 +23,29 @@ class SnakeGame{
 
         window.addEventListener('keydown', (event) => {
 
-            event.preventDefault();
-
             if (event.code === 'Space') {
-              this.togglePlayPause();
+
+                event.preventDefault();
+                this.togglePlayPause();
             }
             else if (event.code === 'ArrowRight' && snake.direction != 'left') {
-              snake.direction = 'right';
+                
+                event.preventDefault();
+                snake.direction = 'right';
             }
             else if (event.code === 'ArrowLeft' && snake.direction != 'right') {
+                
+                event.preventDefault();
                 snake.direction = 'left';
             }
             else if (event.code === 'ArrowUp' && snake.direction != 'down') {
+                
+                event.preventDefault();
                 snake.direction = 'up';
             }
             else if (event.code === 'ArrowDown' && snake.direction != 'up') {
+                
+                event.preventDefault();
                 snake.direction = 'down';
             }
         });
@@ -52,29 +60,41 @@ class SnakeGame{
     }
 
     play(){
+        this.playing = true;
 
         //si es una función flecha, podemos usar "this.""
         //si queremos usar una funcion normal, debemos usar "game."
         interval = setInterval(()=>{ 
             
             this.snakeMovement(); //primero nos movemos
-            if(this.snake.isDead) this.stop(); //luego comprobamos si hemos muerto
             this.snakeEat(); //si no hemos muerto, comemos si podemos
-
+            
             //puntos
             this.updatePoints();
+            
+            if(this.snake.isDead) this.stop(); //luego comprobamos si hemos muerto
 
         }, this.gameSpeed);
     }
 
     pause(){
+        this.playing = false;
 
         if(interval) clearInterval(interval)
     }
     
     stop(){
+        this.playing = false;
+        // window.location.reload();
+        
+        //reiniciamos la serpiente y la manzana
+        this.snake.reset();
+        this.apple.reset();
 
-        window.location.reload();
+        //reiniciamos los puntos
+        this.updatePoints();
+
+        this.pause();
     }
 
     snakeMovement(){
@@ -108,7 +128,7 @@ class SnakeGame{
         var currentElement = document.getElementById("current");
         this.points = this.snake.snakeBody.length;
 
-        currentElement.innerText = this.points;
+        currentElement.innerText = this.points-1;
     }
 
 

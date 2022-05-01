@@ -52,7 +52,11 @@ class Apple {
     }
 
 
-
+    reset(){
+        
+        this.appleElement.style.left = this.x*this.board.cellTam+'px';
+        this.appleElement.style.top = this.y*this.board.cellTam+'px';
+    }
 
 
 }

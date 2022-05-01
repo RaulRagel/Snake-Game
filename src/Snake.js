@@ -161,6 +161,30 @@ class Snake {
         this.isDead = true;
     }
 
+    reset(){
+        //borramos la snake anterior
+        this.snakeBody.forEach(part => {
+            part.remove();
+        });
+
+        this.snakeBody = [];
+
+        //estado a viva
+        this.isDead = false;
+
+        //reinicializamos la posicion, tamaño y dirección
+        this.x = 1;
+        this.y = 1;
+
+        this.snakeHead.style.left = this.x*this.board.cellTam+'px';
+        this.snakeHead.style.top = this.y*this.board.cellTam+'px';
+
+        this.direction = "right";
+        this.snakeHead.style.transform = "rotate(90deg)";
+
+        this.grow();
+    }
+
 
     superGrow(num){
 

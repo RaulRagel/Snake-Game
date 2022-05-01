@@ -62,11 +62,10 @@
     position: absolute;
     z-index: 1;
 
-    
-    background: var(--strippedSnake);
     background: var(--defaultSnake);
     background: var(--greenSnake);
     background: var(--darkSnake);
+    background: var(--strippedSnake);
 }
 
 #apple{
