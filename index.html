@@ -18,6 +18,7 @@
     <script src="src/Apple.js"></script>
     <script src="src/Board.js"></script>
     <script src="src/SnakeGame.js"></script>
+    <script src="src/functionalities.js"></script>
 </head>
 <body>
     <header class="header">
@@ -27,11 +28,28 @@
             <div class="current-score">Puntos: <span id="current"></span></div>
         </div>
         <div class="config-btn">
-            <button id="config" title="Configuración">
+            <button id="config" title="Configuración" onclick="openModal('code-settings-modal')">
                 <i id="config-icon" class="fa fa-cog fa-3x"></i>
             </button>
         </div>
     </header>
+
+    <!-- MENU -->
+    <dialog class="modal" id="code-settings-modal">
+        <div class="modal-header">
+            <button onclick="closeModal('code-settings-modal')">
+                <i class="fa fa-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="h1">Configuración de la partida</div>
+            
+
+            </div>
+        </div>
+        
+    </dialog>
+
     <div id="game-container">
 
     </div>

@@ -1,4 +1,6 @@
 :root{
+
+    --bg: #011627;
     --boardTam: 500px;
     --apple: rgb(165, 0, 0);
     --info: rgb(180, 180, 180);
@@ -28,7 +30,7 @@
 body{
 
     height: 100vh;
-    background-color: #011627;
+    background-color: var(--bg);
 
     overflow: hidden;
 }
@@ -82,4 +84,55 @@ body{
 
     transition: all .5s ease;
     transform: rotate(90deg) scale( 1.2 );
+}
+
+
+
+/* MODALS */
+
+.modal{
+
+    min-width: 300px;
+    min-height: auto;
+
+    max-width: calc((50% - 6px) - 2em);
+    max-height: calc((70% - 6px) - 2em);
+
+    padding: 0px;
+    margin: auto;
+    
+    border: 0;
+
+    box-shadow: 0 0 1em rgb(0 0 0 / .3);
+}
+
+.modal::backdrop{
+
+    /* background: rgb(0 0 0 / .4);
+    background-color: #23074d63; */
+}
+
+.modal-header{
+
+    
+
+    padding: 10px;
+
+    background-color: gray;
+    border-bottom: 1px solid white;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.modal-body{
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bg);
+    color: white;
+
+    padding: 10px;
 }
