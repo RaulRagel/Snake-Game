@@ -1,27 +1,4 @@
-:root{
-    --boardTam: 500px;
-    --snake: rgb(0, 165, 0);
-    --apple: rgb(165, 0, 0);
 
-    --darkGray: rgb(90, 90, 90);
-}
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body{
-
-    background-color: #011627;
-}
-
-.header{
-
-    width: 100%;
-    height: 100px;
-}
 
 #game-container{
 
@@ -58,7 +35,7 @@ body{
 #snake-head{
 
     position: relative;
-    background-color: transparent; 
+    background-color: transparent;
     z-index: 2;
 
     display: flex;
@@ -68,6 +45,7 @@ body{
     transform: rotate(90deg);
 }
 
+#snake-head::before, /*Ojos de la serpiente*/
 #snake-head::after{
 
     content: ' ';
@@ -79,21 +57,16 @@ body{
 
 }
 
-#snake-head::before{
-    content: ' ';
-    width: 25%;
-    height: 25%;
-
-    background-color: #000000;
-    border-radius: 50%;
-}
-
 .snake-body{
 
     position: absolute;
-    background-color: var(--snake);
     z-index: 1;
 
+    
+    background: var(--strippedSnake);
+    background: var(--defaultSnake);
+    background: var(--greenSnake);
+    background: var(--darkSnake);
 }
 
 #apple{
@@ -101,5 +74,21 @@ body{
     position: absolute;
     background-color: var(--apple);
 
+    display: flex;
+    justify-content: center;
+
+    border-radius: 20%;
+
     z-index: 3;
+}
+
+#apple::after{
+
+    content: ' ';
+    width: 20%;
+    height: 35%;
+    margin-top: -10%;
+
+    background-color: #8b6001;
+
 }

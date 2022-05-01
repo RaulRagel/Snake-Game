@@ -11,6 +11,7 @@ class SnakeGame{
         this.snake = snake;
         this.apple = apple;
         this.gameSpeed = gameSpeed;
+        this.points = 0;
 
         this.playing = false;
 
@@ -21,19 +22,22 @@ class SnakeGame{
     controls(){
 
         window.addEventListener('keydown', (event) => {
+
+            event.preventDefault();
+
             if (event.code === 'Space') {
               this.togglePlayPause();
             }
-            if (event.code === 'ArrowRight') {
+            else if (event.code === 'ArrowRight' && snake.direction != 'left') {
               snake.direction = 'right';
             }
-            if (event.code === 'ArrowLeft') {
+            else if (event.code === 'ArrowLeft' && snake.direction != 'right') {
                 snake.direction = 'left';
             }
-            if (event.code === 'ArrowUp') {
+            else if (event.code === 'ArrowUp' && snake.direction != 'down') {
                 snake.direction = 'up';
             }
-            if (event.code === 'ArrowDown') {
+            else if (event.code === 'ArrowDown' && snake.direction != 'up') {
                 snake.direction = 'down';
             }
         });
@@ -56,6 +60,9 @@ class SnakeGame{
             this.snakeMovement(); //primero nos movemos
             if(this.snake.isDead) this.stop(); //luego comprobamos si hemos muerto
             this.snakeEat(); //si no hemos muerto, comemos si podemos
+
+            //puntos
+            this.updatePoints();
 
         }, this.gameSpeed);
     }
@@ -94,6 +101,14 @@ class SnakeGame{
             apple.new();
 
         }
+    }
+
+    updatePoints(){
+
+        var currentElement = document.getElementById("current");
+        this.points = this.snake.snakeBody.length;
+
+        currentElement.innerText = this.points;
     }
 
 

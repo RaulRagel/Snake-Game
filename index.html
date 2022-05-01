@@ -7,8 +7,10 @@
     <title>Snake</title>
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/game.css">
     <link rel="icon" type="image/x-icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- SCRIPTS -->
     <script src="src/initializer.js"></script>
@@ -18,9 +20,18 @@
     <script src="src/SnakeGame.js"></script>
 </head>
 <body>
-    <div class="header">
-
-    </div>
+    <header class="header">
+        <div class="logo">Snake</div>
+        <div class="score">
+            <div class="max-score">Máxima puntuación: <span id="max"></span></div>
+            <div class="current-score">Puntos: <span id="current"></span></div>
+        </div>
+        <div class="config-btn">
+            <button id="config" title="Configuración">
+                <i id="config-icon" class="fa fa-cog fa-3x"></i>
+            </button>
+        </div>
+    </header>
     <div id="game-container">
 
     </div>

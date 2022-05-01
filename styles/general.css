@@ -1,0 +1,85 @@
+:root{
+    --boardTam: 500px;
+    --apple: rgb(165, 0, 0);
+    --info: rgb(180, 180, 180);
+    
+    --darkGray: rgb(90, 90, 90);
+
+    --defaultSnake: #6fbc60;
+    --darkSnake: #396635;
+    --greenSnake: rgb(0, 165, 0);
+    --strippedSnake:  repeating-linear-gradient(
+        50deg,
+        #6fbc60,
+        #6fbc60 10px,
+        #4d9846 10px,
+        #4d9846 18px
+    );
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+
+    height: 100vh;
+    background-color: #011627;
+
+    overflow: hidden;
+}
+
+.header{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: fit-content;
+    padding: 1rem;
+    font-size: 1em;
+    font-weight: 700;
+    
+    color: var(--info);
+}
+
+.header .logo{
+    
+    font-size: 3em;
+    color: #56f326;
+    letter-spacing: 2px;
+    background-image: -webkit-linear-gradient(92deg, #56f326, #137200);
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* -webkit-animation: hue 15s infinite linear; */
+}
+
+@-webkit-keyframes hue{
+
+    from{
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to{
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+#config{
+
+    color: var(--info);
+    background: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+#config:hover > #config-icon{
+
+    transition: all .5s ease;
+    transform: rotate(90deg) scale( 1.2 );
+}

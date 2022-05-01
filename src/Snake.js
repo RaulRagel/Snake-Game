@@ -21,7 +21,7 @@ class Snake {
 
         this.initHead();
         this.grow();
-        this.grow();
+        // this.grow();
     }
 
 
