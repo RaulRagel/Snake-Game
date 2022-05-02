@@ -1,6 +1,7 @@
 :root{
 
     --bg: #011627;
+    --configBg: #406243;
     --boardTam: 500px;
     --apple: rgb(165, 0, 0);
     --info: rgb(180, 180, 180);
@@ -97,7 +98,7 @@ button{
 /* MODALS */
 
 .modal{
-
+    background-color: var(--configBg);
     min-width: 300px;
     min-height: auto;
 
@@ -105,7 +106,7 @@ button{
     max-height: calc((70% - 6px) - 2em);
 
     padding: 0px;
-    margin: auto;
+    margin: 100px auto;
     
     border: 0;
 
@@ -119,8 +120,6 @@ button{
 }
 
 .modal-header{
-
-    
 
     padding: 10px;
 
@@ -137,8 +136,49 @@ button{
     width: 100%;
     height: 100%;
 
-    background-color: var(--bg);
     color: white;
 
     padding: 10px;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.modal-footer button{
+    background-color: gray;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.modal-footer button:hover{
+
+    box-shadow: 0 0 1px 1px #ffffff;
+}
+
+.modal-footer button:active{
+
+    box-shadow: 0 0 3px 3px #ffffff;
+}
+
+.h1{
+    font-weight: 800;
+    font-size: 18px;
+}
+
+input, select{
+
+    border: none;
+    outline: none;
+    width: 20%;
+}
+
+.flex-section{
+
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
 }
