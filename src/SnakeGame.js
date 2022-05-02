@@ -1,6 +1,7 @@
 
 var interval;
 var points = 0;
+var record = 0;
 
 class SnakeGame{
 
@@ -126,9 +127,22 @@ class SnakeGame{
     updatePoints(){
 
         var currentElement = document.getElementById("current");
-        this.points = this.snake.snakeBody.length;
+        var recordElement = document.getElementById("record");
 
-        currentElement.innerText = this.points-1;
+        //puntos actuales
+        this.points = this.snake.snakeBody.length-1;
+
+        currentElement.innerText = this.points;
+
+        //record
+        if(!localStorage.record) localStorage.record = 0;
+
+        if(localStorage.record < this.points)
+            localStorage.record = this.points;
+
+        recordElement.innerHTML = localStorage.record;
+
+
     }
 
 

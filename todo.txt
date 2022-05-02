@@ -10,3 +10,19 @@ ponerle ojitos con el after y el before y con la dirección va rotando
 
 la mamzana puede aparecer en la serpiente o no
 elegir config (tablero, celdas, velocidad de juego, tamaño del snake)
+
+
+--Resumen snake:
+Puntos con high score
+Menú de cambiar cosas
+    Speed, celdas, tamaño de la board con max y min, color snake, 
+    en gris el super grow solo se puede usar cuando estas jugando
+Manzana que no aparezca donde está el body
+Muerte menos cutre
+Título bonito
+
+
+--Extra:
+Poca probabilidad de aparición de boosts:
+Súper grow, invulnerable, súper speed, súper slow...
+Activar/desactivar controles del móvil

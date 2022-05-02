@@ -4,9 +4,11 @@ var snake;
 var apple;
 var board;
 
-//10 fps
-var gameSpeed = 150;
+var gameSpeed = 100;
 var cells = 10;
+
+//en móvil es más recomendable usar esta velocidad:
+// var gameSpeed = 150;
 
 window.onload = function(){
 
@@ -18,13 +20,8 @@ window.onload = function(){
     snake = new Snake(board, apple); //default: 0 (x), 0 (y)
 
     game = new SnakeGame(board, snake, apple, gameSpeed); //default: 100 (gameSpeed)
+    game.updatePoints();
 
-
-    
-    document.querySelector(".logo").addEventListener("click", () => {
-      
-      game.togglePlayPause()
-    })
 
 }
 
