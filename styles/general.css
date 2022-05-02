@@ -35,6 +35,14 @@ body{
     overflow: hidden;
 }
 
+button{
+  
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
 .header{
 
     display: flex;
@@ -75,9 +83,7 @@ body{
 #config{
 
     color: var(--info);
-    background: transparent;
     cursor: pointer;
-    border: none;
 }
 
 #config:hover > #config-icon{
