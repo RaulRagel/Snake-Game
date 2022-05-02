@@ -6,7 +6,7 @@ var board;
 
 //10 fps
 var gameSpeed = 150;
-var cells = 20;
+var cells = 10;
 
 window.onload = function(){
 
