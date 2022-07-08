@@ -4,6 +4,7 @@ var snake;
 var apple;
 var board;
 
+//default values if local is empty
 var gameSpeed = 100;
 var cells = 10;
 
@@ -11,17 +12,9 @@ var cells = 10;
 // var gameSpeed = 150;
 
 window.onload = function(){
-
-    gameContainer = document.getElementById("game-container");
-
-    board = new Board(gameContainer, cells, 350); //default: 20 (cells), 500 (boardTam)
-    
-    apple = new Apple(board); //default: random (x), random (y)
-    snake = new Snake(board, apple); //default: 0 (x), 0 (y)
-
-    game = new SnakeGame(board, snake, apple, gameSpeed); //default: 100 (gameSpeed)
-    game.updatePoints();
-
+  
+  initModal();
+  initGame();
 
 }
 

@@ -141,24 +141,24 @@ button{
     padding: 10px;
 }
 
-.modal-footer{
+.modal-buttons{
     display: flex;
     justify-content: space-around;
     padding: 10px;
 }
 
-.modal-footer button{
+.modal-buttons button{
     background-color: gray;
     padding: 5px;
     border-radius: 4px;
 }
 
-.modal-footer button:hover{
+.modal-buttons button:hover{
 
     box-shadow: 0 0 1px 1px #ffffff;
 }
 
-.modal-footer button:active{
+.modal-buttons button:active{
 
     box-shadow: 0 0 3px 3px #ffffff;
 }
